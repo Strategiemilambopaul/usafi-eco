@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+     <title>Tarif - USAFI ECO</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+
+        <!-- Navbar & Hero Start -->
+          <div class="container-xxl position-relative p-0">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="m-0"><img src="img/logo.png" class="h-400 w-350" alt="Logo USAFI ECO"></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                   <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                        <a href="about.html" class="nav-item nav-link">À propos</a>
+                        <a href="team.html" class="nav-item nav-link">Partenaires</a>
+
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="testimonial.html" class="dropdown-item">Témoignage</a>
+                                <a href="recyclage.html" class="dropdown-item">Contact</a>
+                                <!-- <a href="team.html" class="dropdown-item">Notre Équipe</a>
+                                <a href="impact.html" class="dropdown-item">Impact & Résultats</a> -->
+                            </div>
+                        </div>
+
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <a href="team.html" class="btn btn-success py-2 px-4 ms-3">Demander une collecte</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <div class="container-xxl py-5 bg-success hero-header mb-5">
+            <div class="container my-5 py-5 px-lg-5">
+                <div class="row g-5 pt-5">
+                    <div class="col-12 text-center text-lg-start">
+                        <h1 class="display-4 text-white animated slideInLeft">Tarif</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center justify-content-lg-start animated slideInLeft">
+                                <li class="breadcrumb-item"><a class="text-white" href="index.html">Accueil</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Tarif</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Pricing Start -->
+        <div class="container-xxl py-5">
+            <div class="container px-lg-5">
+                <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp"
+                    style="max-width: 700px;">
+                    <h1 class="mb-3" id="wasteTitle">Nos Formules de Gestion des Déchets</h1>
+                    <p class="mb-1" id="wasteDesc">
+                        Choisissez une formule adaptée à vos besoins : ménages, entreprises ou grandes institutions.
+                        Chaque offre inclut un service fiable, rapide, écologique et conforme aux normes de propreté
+                        urbaine.
+                    </p>
+                </div>
+
+                <div class="row gy-5 gx-4" id="wastePlans">
+                    <!-- Les plans seront injectés ici via JS -->
+                </div>
+            </div>
+        </div>
+        <!-- Pricing End -->
+
+        <!-- Modal Formulaire -->
+        <div class="modal fade" id="wasteModal" tabindex="-1" aria-labelledby="wasteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 shadow rounded">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="wasteModalLabel">Souscrire à une formule</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form id="wasteForm">
+                            <div class="mb-3">
+                                <label for="subscriberName" class="form-label">Nom complet</label>
+                                <input type="text" class="form-control" id="subscriberName" placeholder="Votre nom"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subscriberPartner" class="form-label">Partenaire</label>
+                                <input type="text" class="form-control" id="subscriberPartner" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subscriberPlan" class="form-label">Formule</label>
+                                <select id="subscriberPlan" class="form-select" required>
+                                    <option value="">Choisissez une formule</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subscriberEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="subscriberEmail" placeholder="Votre email"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subscriberPhone" class="form-label">Téléphone</label>
+                                <input type="tel" class="form-control" id="subscriberPhone" placeholder="Votre numéro"
+                                    required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Souscrire</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <div class="container-fluid bg-success text-white footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row gy-5 gx-4 pt-5">
+
+                    <!-- Newsletter -->
+                    <div class="col-12">
+                        <h5 class="fw-bold text-white mb-4">Rejoignez Notre Newsletter</h5>
+                        <div class="position-relative" style="max-width: 400px;">
+                            <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Entrez votre email">
+                            <button type="button"
+                                class="btn btn-success py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">S'inscrire</button>
+                        </div>
+                    </div>
+
+                    <!-- Informations -->
+                    <div class="col-lg-5 col-md-12">
+                        <div class="row gy-5 g-4">
+
+                            <!-- À propos -->
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-white mb-4">USAFI ECO</h5>
+                                <a class="btn btn-link text-white-50" href="">À propos</a>
+                                <a class="btn btn-link text-white-50" href="">Notre Mission</a>
+                                <a class="btn btn-link text-white-50" href="">Nos Engagements</a>
+                                <a class="btn btn-link text-white-50" href="">Politique de Confidentialité</a>
+                                <a class="btn btn-link text-white-50" href="">Conditions d’Utilisation</a>
+                            </div>
+
+                            <!-- Services -->
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-white mb-4">Nos Services</h5>
+                                <a class="btn btn-link text-white-50" href="">Collecte à Domicile</a>
+                                <a class="btn btn-link text-white-50" href="">Points de Collecte</a>
+                                <a class="btn btn-link text-white-50" href="">Tri & Recyclage</a>
+                                <a class="btn btn-link text-white-50" href="">Sensibilisation</a>
+                                <a class="btn btn-link text-white-50" href="">Application Mobile</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="fw-bold text-white mb-4">Nous Contacter</h5>
+
+                        <p class="mb-2">
+                            <i class="fa fa-map-marker-alt me-3"></i>
+                            Kinshasa, République Démocratique du Congo
+                        </p>
+
+                        <p class="mb-2">
+                            <i class="fa fa-phone-alt me-3"></i>
+                            +243 000 000 000
+                        </p>
+
+                        <p class="mb-2">
+                            <i class="fa fa-envelope me-3"></i>
+                            contact@usafieco.cd
+                        </p>
+
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Message Rapide -->
+                     <div class="col-md-6 col-lg-4 mt-lg-n5">
+                        <img src="img/r.jpg" alt="" srcset="" class="py-2 mb-2 rounded-circle" style="height: 100%; width: 90%">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="container px-lg-5">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom text-white" href="#">USAFI ECO</a>, Tous droits réservés.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="" class="text-white-50">Accueil</a>
+                                <a href="" class="text-white-50">Cookies</a>
+                                <a href="" class="text-white-50">Aide</a>
+                                <a href="" class="text-white-50">FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Formulaire -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const partner = params.get('partner') || 'DefaultPartner';
+            const name = params.get('name') || '';
+
+            const nameInput = document.getElementById('subscriberName');
+            const partnerInput = document.getElementById('subscriberPartner');
+            const selectPlan = document.getElementById('subscriberPlan');
+            const container = document.getElementById('wastePlans');
+            const wasteForm = document.getElementById('wasteForm');
+            const wasteModalEl = document.getElementById('wasteModal');
+            const wasteModal = new bootstrap.Modal(wasteModalEl);
+
+            // Pré-remplir nom et partenaire
+            if (name) nameInput.value = name;
+            partnerInput.value = partner.toUpperCase();
+
+            // Modifier titre et description
+            document.getElementById('wasteTitle').textContent = `Formules pour ${partner.toUpperCase()}`;
+            document.getElementById('wasteDesc').textContent = `Découvrez nos formules adaptées aux besoins de ${partner}.`;
+
+            // Plans complets
+            const plans = [
+                { title: 'Formule Ménage', price: 6.99, color: 'success', icon: 'fa-home', features: ['2 collectes par semaine', 'Sacs écologiques fournis', 'Signalement via application', 'Assistance client 7j/7'], discount: '15%' },
+                { title: 'Formule Entreprise', price: 19.99, color: 'primary', icon: 'fa-building', features: ['Collecte quotidienne', 'Recyclage trié', 'Conteneurs fournis', 'Rapports mensuels d’impact écologique'], discount: '20%' },
+                { title: 'Formule Université | Ecole', price: 25, color: 'warning', icon: 'fa-industry', features: ['Collecte intensive (3 à 5 fois/jour)', 'Gestion déchets biomédicaux', 'Audit environnemental trimestriel', 'Accompagnement spécialisé & formation'], discount: '25%' }
+            ];
+
+            // Ajouter options dans select et cartes
+            container.innerHTML = '';
+            selectPlan.innerHTML = '<option value="">Choisissez une formule</option>';
+            plans.forEach(plan => {
+                // Option
+                const option = document.createElement('option');
+                option.value = plan.title;
+                option.textContent = plan.title;
+                selectPlan.appendChild(option);
+
+                // Carte
+                const planHTML = `
+                <div class="col-lg-4 col-md-6 wow fadeInUp mb-4">
+                    <div class="position-relative shadow rounded border-top border-5 border-${plan.color}">
+                        <div class="d-flex align-items-center justify-content-center position-absolute top-0 start-50 translate-middle bg-${plan.color} rounded-circle"
+                            style="width: 55px; height: 55px; margin-top: -3px;">
+                            <i class="fa ${plan.icon} text-white"></i>
+                        </div>
+                        <div class="text-center border-bottom p-4 pt-5">
+                            <h4 class="fw-bold">${plan.title}</h4>
+                            <p class="mb-0">Plan adapté pour ${partner}</p>
+                        </div>
+                        <div class="text-center border-bottom p-4">
+                            <p class="text-${plan.color} mb-1">Offre spéciale - <strong>Réduction ${plan.discount}</strong></p>
+                            <h1 class="mb-3">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>${plan.price}<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ mois</small>
+                            </h1>
+                            <button class="btn btn-${plan.color} px-4 py-2 subscribeBtn" data-plan="${plan.title}">Souscrire</button>
+                        </div>
+                        <div class="p-4">
+                            ${plan.features.map(f => `<p class="border-bottom pb-3"><i class="fa fa-check text-${plan.color} me-3"></i>${f}</p>`).join('')}
+                        </div>
+                    </div>
+                </div>`;
+                container.insertAdjacentHTML('beforeend', planHTML);
+            });
+
+            // Ouvrir modal au clic sur Souscrire
+            document.querySelectorAll('.subscribeBtn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    selectPlan.value = btn.dataset.plan;
+                    wasteModal.show();
+                });
+            });
+
+            // Soumission formulaire
+            wasteForm.addEventListener('submit', e => {
+                e.preventDefault();
+                const subscriberName = nameInput.value.trim();
+                const subscriberEmail = document.getElementById('subscriberEmail').value.trim();
+                const subscriberPhone = document.getElementById('subscriberPhone').value.trim();
+                const subscriberPlan = selectPlan.value;
+
+                if (!subscriberName || !subscriberEmail || !subscriberPhone || !subscriberPlan) {
+                    alert('Veuillez remplir tous les champs.');
+                    return;
+                }
+
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!subscriberEmail.match(emailPattern)) {
+                    alert('Veuillez entrer un email valide.');
+                    return;
+                }
+
+                alert(`Merci ${subscriberName}, vous avez souscrit à la formule "${subscriberPlan}" !`);
+                wasteForm.reset();
+                wasteModal.hide();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>USAFI ECO - Partenaires</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet (existing) -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet (existing) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Swiper (for the new carousels) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Styles for the partners section (glassmorphism + responsive) */
+        :root {
+            --accent: #28a745;
+            --muted: #94a3b8;
+            --card-radius: 14px;
+            --glass-shadow: 0 8px 30px rgba(2, 6, 23, 0.12);
+        }
+
+        .usafi-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        .usafi-hero h2 {
+            font-size: 28px;
+            color: #0b5e32;
+            margin-bottom: 6px;
+        }
+
+        .usafi-hero p {
+            color: var(--muted);
+            max-width: 900px;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, rgba(248, 255, 248, 0.9), rgba(255, 255, 255, 0.85));
+            border-radius: var(--card-radius);
+            padding: 18px;
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.12);
+        }
+
+        .partner-head {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .partner-logo {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .partner-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #0b5e32;
+        }
+
+        .partner-sub {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .partner-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .chip {
+            padding: 6px 10px;
+            background: #f3faf4;
+            border-radius: 999px;
+            font-size: 13px;
+            color: #0b5e32;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .partner-cta {
+            margin-top: auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(11, 94, 50, 0.08);
+            color: #0b5e32;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn-primary-solid {
+            background: linear-gradient(90deg, var(--accent), #20c997);
+            color: #042;
+            border: none;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .sub-section {
+            margin-top: 30px;
+            background: #f8fdf8;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .sub-section h3 {
+            margin: 0 0 10px 0;
+            color: #0b5e32;
+        }
+
+        .sw-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            min-height: 120px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .sw-card img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* modal simple overrides */
+        .usafi-modal .modal-content {
+            border-radius: 12px;
+        }
+
+        @media (max-width:700px) {
+            .partner-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- your existing header / navbar are assumed present here (kept) -->
+        <div class="container-xxl position-relative p-0">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand p-0">
+                    <h1 class="m-0"><img src="img/logo.png" class="h-400 w-350" alt="Logo USAFI ECO"></h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                        <a href="about.html" class="nav-item nav-link">À propos</a>
+                        <a href="team.html" class="nav-item nav-link">Partenaires</a>
+
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plus</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="testimonial.html" class="dropdown-item">Témoignage</a>
+                                <a href="contact.html" class="dropdown-item">Contact</a>
+                                <!-- <a href="team.html" class="dropdown-item">Notre Équipe</a>
+                                <a href="impact.html" class="dropdown-item">Impact & Résultats</a> -->
+                            </div>
+                        </div>
+
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal"
+                        data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                </div>
+            </nav>
+
+            <!-- Hero -->
+            <div class="container-xxl py-5 bg-success hero-header mb-5">
+                <div class="container my-5 py-5 px-lg-5">
+                    <div class="row g-5 pt-5">
+                        <div class="col-12 text-center text-lg-start">
+                            <h1 class="display-4 text-white animated slideInLeft">Partenaires</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol
+                                    class="breadcrumb justify-content-center justify-content-lg-start animated slideInLeft">
+                                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Accueil</a></li>
+                                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                                    <li class="breadcrumb-item text-white active" aria-current="page">Partenaires</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PARTNERS SECTION (inject here) ========== -->
+        <div class="container-xxl py-5">
+            <div class="container px-lg-5">
+                <!-- Section content injected below -->
+                <section id="usafi-partners" class="usafi-section">
+                    <div class="usafi-hero text-center">
+                        <h2>Partenaires & Écosystème</h2>
+                        <p>Réseau de structures de recyclage, valorisation et logistique — chaque partenaire a sa fiche
+                            détaillée, réalisations et témoignages.</p>
+                    </div>
+
+                    <!-- Partners grid -->
+                    <div class="partners-grid" id="partnersGrid"></div>
+
+                    <!-- Global Testimonials -->
+                    <div class="sub-section">
+                        <h3>Témoignages clients récents</h3>
+                        <div class="swiper global-testimonials-swiper" style="padding-top:12px;">
+                            <div class="swiper-wrapper" id="globalTestimonialsWrapper"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
+                    <!-- Global Realizations -->
+                    <div class="sub-section">
+                        <h3>Réalisations & Projets</h3>
+                        <div class="swiper global-realizations-swiper" style="padding-top:12px;">
+                            <div class="swiper-wrapper" id="globalRealizationsWrapper"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- ========== END PARTNERS SECTION ========== -->
+
+        <!-- Modals -->
+        <!-- Partner details modal -->
+        <div class="modal fade usafi-modal" id="partnerDetailsModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header border-0">
+                        <h5 id="pd-title" class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="pd-body"></div>
+                    <div class="modal-footer border-0">
+                        <button class="btn btn-ghost" data-bs-dismiss="modal">Fermer</button>
+                        <button class="btn btn-primary-solid" id="pd-contact-btn">Demander un service</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service form modal -->
+        <div class="modal fade usafi-modal" id="serviceModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Demander un service</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="serviceForm">
+                            <input type="hidden" id="service_partner" name="partner" value="">
+                            <div class="mb-2">
+                                <label class="form-label">Nom complet</label>
+                                <input class="form-control" id="svc_name" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Téléphone / WhatsApp</label>
+                                <input class="form-control" id="svc_phone" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Adresse (quartier/commune)</label>
+                                <input class="form-control" id="svc_address" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Détails / Tâches demandées</label>
+                                <textarea class="form-control" id="svc_details" rows="3" required></textarea>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-ghost" type="button" data-bs-dismiss="modal">Annuler</button>
+                                <button class="btn btn-primary-solid" type="submit">Envoyer et aller au
+                                    paiement</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial modal -->
+        <div class="modal fade usafi-modal" id="testimonialModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Laisser un témoignage</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="testimonialForm">
+                            <input type="hidden" id="test_partner" value="">
+                            <div class="mb-2">
+                                <label class="form-label">Nom</label>
+                                <input class="form-control" id="test_name" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Localité (ex: Kinshasa - Gombe)</label>
+                                <input class="form-control" id="test_location" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Témoignage</label>
+                                <textarea class="form-control" id="test_text" rows="3" required></textarea>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-ghost" type="button" data-bs-dismiss="modal">Annuler</button>
+                                <button class="btn btn-primary-solid" type="submit">Publier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer kept as-is (your existing footer) -->
+        <div class="container-fluid bg-success text-white footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row gy-5 gx-4 pt-5">
+
+                    <!-- Newsletter -->
+                    <div class="col-12">
+                        <h5 class="fw-bold text-white mb-4">Rejoignez Notre Newsletter</h5>
+                        <div class="position-relative" style="max-width: 400px;">
+                            <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Entrez votre email">
+                            <button type="button"
+                                class="btn btn-success py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">S'inscrire</button>
+                        </div>
+                    </div>
+
+                    <!-- Informations -->
+                    <div class="col-lg-5 col-md-12">
+                        <div class="row gy-5 g-4">
+
+                            <!-- À propos -->
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-white mb-4">USAFI ECO</h5>
+                                <a class="btn btn-link text-white-50" href="">À propos</a>
+                                <a class="btn btn-link text-white-50" href="">Notre Mission</a>
+                                <a class="btn btn-link text-white-50" href="">Nos Engagements</a>
+                                <a class="btn btn-link text-white-50" href="">Politique de Confidentialité</a>
+                                <a class="btn btn-link text-white-50" href="">Conditions d’Utilisation</a>
+                            </div>
+
+                            <!-- Services -->
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-white mb-4">Nos Services</h5>
+                                <a class="btn btn-link text-white-50" href="">Collecte à Domicile</a>
+                                <a class="btn btn-link text-white-50" href="">Points de Collecte</a>
+                                <a class="btn btn-link text-white-50" href="">Tri & Recyclage</a>
+                                <a class="btn btn-link text-white-50" href="">Sensibilisation</a>
+                                <a class="btn btn-link text-white-50" href="">Application Mobile</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="fw-bold text-white mb-4">Nous Contacter</h5>
+
+                        <p class="mb-2">
+                            <i class="fa fa-map-marker-alt me-3"></i>
+                            Kinshasa, République Démocratique du Congo
+                        </p>
+
+                        <p class="mb-2">
+                            <i class="fa fa-phone-alt me-3"></i>
+                            +243 000 000 000
+                        </p>
+
+                        <p class="mb-2">
+                            <i class="fa fa-envelope me-3"></i>
+                            contact@usafieco.cd
+                        </p>
+
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Message Rapide -->
+                    <div class="col-md-6 col-lg-4 mt-lg-n5">
+                        <img src="img/r.jpg" alt="" srcset="" class="py-2 mb-2 rounded-circle" style="height: 100%; width: 90%">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="container px-lg-5">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom text-white" href="#">USAFI ECO</a>, Tous droits réservés.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="" class="text-white-50">Accueil</a>
+                                <a href="" class="text-white-50">Cookies</a>
+                                <a href="" class="text-white-50">Aide</a>
+                                <a href="" class="text-white-50">FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ================== SCRIPTS ================== -->
+    <!-- Existing page scripts (jQuery, Bootstrap, etc.) are assumed present below.
+         If they are already present in your template keep them; if not, include them. -->
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        /* ========== FULL JS: partners, renderers, modals, swipers, storage ========== */
+
+        const PARTNERS = [
+            {
+                id: 'ecoplast',
+                name: 'EcoPlast',
+                logo: 'img/partners/pa.avif',
+                short: 'Recyclage des plastiques ménagers et industriels, tri et valorisation.',
+                domains: ['Plastique', 'Tri', 'Collecte'],
+                hours: '08:00 - 17:00 (Lun–Sam)',
+                zone: 'Kinshasa (Limete, Matete, Lemba)',
+                tasks: ['Collecte à domicile', 'Tri sélectif et compactage', 'Recyclage industriel', 'Sensibilisation communautaire'],
+                realizations: ['img/projects/a.jpg', 'img/projects/b.jpg', 'img/projects/c.jpg'],
+                testimonials: [
+                    { name: 'Jean M.', location: 'Kinshasa', text: 'Rapide et professionnel — EcoPlast a traité notre demande en 24h.' },
+                    { name: 'Aline K.', location: 'Lemba', text: 'Le tri a permis de réduire nos déchets de 40%!' }
+                ]
+            },
+            {
+                id: 'metalrecycle',
+                name: 'MetalRecycle',
+                logo: 'img/partners/m.jpg',
+                short: 'Collecte et recyclage des métaux: fer, aluminium, cuivre. Fonte et revalorisation.',
+                domains: ['Métaux', 'Collecte lourde', 'Fonte'],
+                hours: '09:00 - 18:00 (Lun–Sam)',
+                zone: 'Kinshasa (Kingabwa, Masina, Ndjili)',
+                tasks: ['Collecte industrielle', 'Tri et séparation magnétique', 'Fonte et revente'],
+                realizations: ['img/projects/d.jpg', 'img/projects/l.jpg', 'img/projects/k.jpg'],
+                testimonials: [
+                    { name: 'Marie L.', location: 'Lubumbashi', text: 'Très sérieux, la collecte s’est déroulée sans souci.' }
+                ]
+            },
+            {
+                id: 'papierpro',
+                name: 'PapierPro',
+                logo: 'img/partners/p.jpg',
+                short: 'Recyclage papier & carton, fabrication de papier recyclé et emballages écologiques.',
+                domains: ['Papier', 'Carton', 'Emballage'],
+                hours: '08:00 - 15:00 (Lun–Sam)',
+                zone: 'Kinshasa (Gombe, Kasa-Vubu)',
+                tasks: ['Collecte de papier', 'Broyage et pulpage', 'Fabrication de cartons recyclés'],
+                realizations: ['img/projects/i.jpg', 'img/projects/f.png', 'img/projects/c.jpg'],
+                testimonials: [
+                    { name: 'Paul K.', location: 'Goma', text: 'PapierPro nous a aidés à transformer nos déchets en ressources.' }
+                ]
+            },
+
+            // 3 additional real-like partners (kinshasa/local)
+            {
+                id: 'congorecycle',
+                name: 'CongoRecycle',
+                logo: 'img/partners/f.jpg',
+                short: 'Opérateur de collecte et de tri multi-matériaux avec présence dans plusieurs communes.',
+                domains: ['Collecte', 'Tri', 'Logistique'],
+                hours: '07:30 - 17:30 (Lun–Sam)',
+                zone: 'Kinshasa (Gombe, Ngiri-Ngiri, Bandalungwa)',
+                tasks: ['Ramassage périodique', 'Tri centralisé', 'Logistique vers centres de recyclage'],
+                realizations: ['img/projects/k.jpg', 'img/projects/l.jpg'],
+                testimonials: [
+                    { name: 'Samuel T.', location: 'Gombe', text: 'Service fiable et coordonné, bonne communication.' }
+                ]
+            },
+            {
+                id: 'kinashagrn',
+                name: 'Kinshasa GreenWorks',
+                logo: 'img/partners/b.jpg',
+                short: 'Solutions de compostage urbain et programmes d’agriculture urbaine.',
+                domains: ['Compost', 'Sensibilisation', 'Agriculture urbaine'],
+                hours: '08:00 - 16:00 (Lun–Ven)',
+                zone: 'Kinshasa (Ngaliema, Mont Ngafula)',
+                tasks: ['Collecte organique', 'Production compost', 'Formation & ateliers'],
+                realizations: ['img/projects/b.jpg', 'img/projects/i.jpg'],
+                testimonials: [
+                    { name: 'Brigitte M.', location: 'Ngaliema', text: 'Le compost local a boosté notre potager communautaire.' }
+                ]
+            },
+            {
+                id: 'biocompost',
+                name: 'BioCompost RDC',
+                logo: 'img/partners/e.png',
+                short: 'Valorisation énergétique des déchets organiques : biogaz et fertilisants.',
+                domains: ['Biogaz', 'Valorisation', 'Énergie'],
+                hours: '08:00 - 18:00 (Tous les jours)',
+                zone: 'Kinshasa (Selembao, Bumbu)',
+                tasks: ['Digestion anaérobie', 'Production biogaz', 'Distribution fertilisants'],
+                realizations: ['img/projects/a.jpg', 'img/projects/e.jpg'],
+                testimonials: [
+                    { name: 'Eric P.', location: 'Selembao', text: 'Réduction visible des odeurs et bonne production de gaz.' }
+                ]
+            }
+        ];
+
+        const LS_TESTIMONIALS = 'usafi_testimonials_v1';
+
+        function loadStoredTestimonials() {
+            const raw = localStorage.getItem(LS_TESTIMONIALS);
+            if (!raw) return {};
+            try { return JSON.parse(raw); } catch (e) { return {}; }
+        }
+        function saveStoredTestimonials(map) { localStorage.setItem(LS_TESTIMONIALS, JSON.stringify(map)); }
+
+        /* RENDER PARTNERS */
+        function renderPartners() {
+            const grid = document.getElementById('partnersGrid');
+            grid.innerHTML = '';
+            PARTNERS.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'partner-card';
+                card.innerHTML = `
+          <div class="partner-head">
+            <img class="partner-logo" src="${p.logo}" alt="${p.name}">
+            <div style="flex:1">
+              <div class="partner-title">${p.name}</div>
+              <div class="partner-sub">${p.short}</div>
+            </div>
+          </div>
+
+          <div class="partner-meta" aria-hidden="true">
+            <div class="chip">Domaines: ${p.domains.join(', ')}</div>
+            <div class="chip">Zone: ${p.zone}</div>
+            <div class="chip">Horaires: ${p.hours}</div>
+          </div>
+
+          <div style="margin-top:10px; color:var(--muted); font-size:13px;">
+            <strong>Tâches principales :</strong>
+            <ul style="margin:6px 0 0 18px; padding:0; color:var(--muted); font-size:13px;">
+              ${p.tasks.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="partner-cta">
+            <button class="btn-ghost" data-action="details" data-id="${p.id}">Détails</button>
+            <button class="btn-primary-solid" data-action="service" data-id="${p.id}">Demander</button>
+            <button class="btn-ghost" data-action="testimonial" data-id="${p.id}">Témoigner</button>
+          </div>
+        `;
+                grid.appendChild(card);
+            });
+        }
+
+        /* RENDER GLOBAL SLIDES */
+        function renderGlobalSlides() {
+            const realWrap = document.getElementById('globalRealizationsWrapper');
+            const testWrap = document.getElementById('globalTestimonialsWrapper');
+            realWrap.innerHTML = '';
+            testWrap.innerHTML = '';
+
+            // flatten realizations
+            PARTNERS.forEach(p => {
+                (p.realizations || []).forEach(img => {
+                    const s = document.createElement('div'); s.className = 'swiper-slide';
+                    s.innerHTML = `<div class="sw-card"><img src="${img}" alt=""><div style="color:var(--muted);font-size:13px;margin-top:6px;">${p.name} — Projet</div></div>`;
+                    realWrap.appendChild(s);
+                });
+            });
+
+            // testimonials: defaults + stored
+            const stored = loadStoredTestimonials();
+
+            PARTNERS.forEach(p => {
+                (p.testimonials || []).forEach(t => {
+                    const s = document.createElement('div'); s.className = 'swiper-slide';
+                    s.innerHTML = `<div class="sw-card"><p style="margin:0;color:#0b5e32;font-weight:600;">${t.name}</p><p class="testimonial-text" style="margin:6px 0 0 0;color:#374151">"${t.text}"</p><div style="color:var(--muted);font-size:13px;margin-top:8px;">${t.location} — ${p.name}</div></div>`;
+                    testWrap.appendChild(s);
+                });
+            });
+
+            Object.keys(stored).forEach(pid => {
+                (stored[pid] || []).forEach(t => {
+                    const p = PARTNERS.find(x => x.id === pid);
+                    const s = document.createElement('div'); s.className = 'swiper-slide';
+                    s.innerHTML = `<div class="sw-card"><p style="margin:0;color:#0b5e32;font-weight:600;">${t.name}</p><p class="testimonial-text" style="margin:6px 0 0 0;color:#374151">"${t.text}"</p><div style="color:var(--muted);font-size:13px;margin-top:8px;">${t.location} — ${p ? p.name : pid}</div></div>`;
+                    testWrap.appendChild(s);
+                });
+            });
+        }
+
+        /* SWIPERS */
+        let realSwiper = null, testSwiper = null;
+        function initSwipers() {
+            // destroy existing if present
+            if (realSwiper) realSwiper.destroy(true, true);
+            if (testSwiper) testSwiper.destroy(true, true);
+
+            realSwiper = new Swiper('.global-realizations-swiper', {
+                slidesPerView: 3, spaceBetween: 16, loop: true,
+                pagination: { el: '.global-realizations-swiper .swiper-pagination', clickable: true },
+                breakpoints: { 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
+            });
+
+            testSwiper = new Swiper('.global-testimonials-swiper', {
+                slidesPerView: 1, spaceBetween: 12, loop: true, autoplay: { delay: 3800 },
+                pagination: { el: '.global-testimonials-swiper .swiper-pagination', clickable: true },
+                breakpoints: { 640: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
+            });
+        }
+
+        /* MODALS: details & service & testimonial */
+        function openPartnerDetails(id) {
+            const p = PARTNERS.find(x => x.id === id); if (!p) return;
+            const body = document.getElementById('pd-body');
+            const stored = loadStoredTestimonials();
+            const partnerStored = stored[p.id] || [];
+            document.getElementById('pd-title').innerText = p.name;
+            body.innerHTML = `
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <img src="${p.logo}" style="width:120px;height:90px;object-fit:cover;border-radius:8px;border:1px solid rgba(0,0,0,0.04)">
+          <div style="flex:1;">
+            <div style="color:#0b5e32;font-weight:700;margin-bottom:6px;">${p.short}</div>
+            <div style="color:var(--muted);font-size:13px;"><strong>Zone:</strong> ${p.zone} • <strong>Horaires:</strong> ${p.hours}</div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px;"><strong>Domaines:</strong> ${p.domains.join(', ')}</div>
+          </div>
+        </div>
+        <hr />
+        <div style="margin-top:8px">
+          <h6 style="margin:0 0 8px 0;color:#0b5e32">Tâches principales</h6>
+          <ul style="color:var(--muted)">${p.tasks.map(t => `<li>${t}</li>`).join('')}</ul>
+        </div>
+        <div style="margin-top:12px">
+          <h6 style="margin:0 0 8px 0;color:#0b5e32">Réalisations</h6>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">${(p.realizations || []).map(img => `<img src="${img}" style="width:140px;height:80px;object-fit:cover;border-radius:8px;border:1px solid rgba(0,0,0,0.04)"/>`).join('')}</div>
+        </div>
+        <div style="margin-top:12px">
+          <h6 style="margin:0 0 8px 0;color:#0b5e32">Témoignages récents</h6>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            ${(p.testimonials || []).map(t => `<div style="background:#fff;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.03)"><strong style="color:#0b5e32">${t.name}</strong> <div style="color:var(--muted);font-size:13px">${t.location}</div><p style="margin-top:6px">${t.text}</p></div>`).join('')}
+            ${partnerStored.map(t => `<div style="background:#fff;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.03)"><strong style="color:#0b5e32">${t.name}</strong> <div style="color:var(--muted);font-size:13px">${t.location}</div><p style="margin-top:6px">${t.text}</p></div>`).join('')}
+          </div>
+        </div>
+      `;
+            const m = new bootstrap.Modal(document.getElementById('partnerDetailsModal'));
+            m.show();
+
+            document.getElementById('pd-contact-btn').onclick = () => {
+                m.hide();
+                setTimeout(() => openServiceModal(id), 250);
+            };
+        }
+
+        function openServiceModal(partnerId) {
+            document.getElementById('service_partner').value = partnerId;
+            document.getElementById('svc_name').value = '';
+            document.getElementById('svc_phone').value = '';
+            document.getElementById('svc_address').value = '';
+            document.getElementById('svc_details').value = '';
+            const m = new bootstrap.Modal(document.getElementById('serviceModal'));
+            m.show();
+        }
+
+        function openTestimonialModal(partnerId) {
+            document.getElementById('test_partner').value = partnerId;
+            document.getElementById('test_name').value = '';
+            document.getElementById('test_location').value = '';
+            document.getElementById('test_text').value = '';
+            const m = new bootstrap.Modal(document.getElementById('testimonialModal'));
+            m.show();
+        }
+
+        /* attach button handlers (delegation) */
+        function attachPartnerActions() {
+            document.getElementById('partnersGrid').addEventListener('click', function (e) {
+                const btn = e.target.closest('button');
+                if (!btn) return;
+                const action = btn.dataset.action;
+                const id = btn.dataset.id;
+                if (action === 'details') openPartnerDetails(id);
+                else if (action === 'service') openServiceModal(id);
+                else if (action === 'testimonial') openTestimonialModal(id);
+            });
+        }
+
+        /* Service form submit -> redirect to pricing.html with params */
+        document.addEventListener('DOMContentLoaded', function () {
+            const serviceForm = document.getElementById('serviceForm');
+            serviceForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const payload = {
+                    partner: document.getElementById('service_partner').value,
+                    name: document.getElementById('svc_name').value.trim(),
+                    phone: document.getElementById('svc_phone').value.trim(),
+                    address: document.getElementById('svc_address').value.trim(),
+                    details: document.getElementById('svc_details').value.trim()
+                };
+                localStorage.setItem('last_service_request', JSON.stringify(payload));
+                const qs = new URLSearchParams({ partner: payload.partner, name: payload.name }).toString();
+                window.location.href = 'pricing.html?' + qs;
+            });
+
+            /* testimonial submit */
+            const testimonialForm = document.getElementById('testimonialForm');
+            testimonialForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const pid = document.getElementById('test_partner').value;
+                const entry = {
+                    name: document.getElementById('test_name').value.trim(),
+                    location: document.getElementById('test_location').value.trim(),
+                    text: document.getElementById('test_text').value.trim(),
+                    date: new Date().toISOString()
+                };
+                const map = loadStoredTestimonials();
+                if (!map[pid]) map[pid] = [];
+                map[pid].unshift(entry);
+                if (map[pid].length > 30) map[pid].length = 30;
+                saveStoredTestimonials(map);
+
+                // re-render slides & swipers
+                renderGlobalSlides();
+                initSwipers();
+                bootstrap.Modal.getInstance(document.getElementById('testimonialModal')).hide();
+            });
+        });
+
+        /* GSAP animation */
+        function animateEntrance() {
+            try {
+                gsap.from("#usafi-partners .partner-card", { y: 18, opacity: 0, stagger: 0.06, duration: 0.6, ease: "power2.out" });
+            } catch (e) {/* GSAP optional */ }
+        }
+
+        /* Init all */
+        function init() {
+            renderPartners();
+            renderGlobalSlides();
+            initSwipers();
+            attachPartnerActions();
+            animateEntrance();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else init();
+
+    </script>
+
+    <!-- Your existing page libraries (keep them) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template JS (if any) -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
